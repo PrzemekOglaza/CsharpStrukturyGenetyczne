@@ -1,9 +1,9 @@
 ﻿
 namespace _1_TypyGeneryczne
 {
-    public class KolejkaKolowa
+    public class KolejkaKolowa<T>
     {
-        private double[] bufor;
+        private T[] bufor;
         private int poczatekBufora;
         private int koniecBufora;
 
@@ -14,12 +14,12 @@ namespace _1_TypyGeneryczne
 
         public KolejkaKolowa(int pojemnosc)
         {
-            bufor = new double[pojemnosc + 1];
+            bufor = new T[pojemnosc + 1];
             poczatekBufora = 0;
             koniecBufora = 0;
         }
 
-        public void Zapisz(double wartosc)
+        public void Zapisz(T wartosc)
         {
             bufor[koniecBufora] = wartosc;
             koniecBufora = (koniecBufora + 1) % bufor.Length;
@@ -29,10 +29,10 @@ namespace _1_TypyGeneryczne
                 poczatekBufora = (poczatekBufora + 1) % bufor.Length;
             }
         }
-        public double Czytaj()
+        public T Czytaj()
         {
             var wynik = bufor[poczatekBufora];
-            poczatekBufora = (poczatekBufora+1) % bufor.Length;
+            poczatekBufora = (poczatekBufora + 1) % bufor.Length;
             return wynik;
         }
 
@@ -43,7 +43,7 @@ namespace _1_TypyGeneryczne
                 return bufor.Length;
             }
         }
-         public bool JestPusty
+        public bool JestPusty
         {
             get
             {
@@ -58,4 +58,5 @@ namespace _1_TypyGeneryczne
             }
         }
     }
+
 }
