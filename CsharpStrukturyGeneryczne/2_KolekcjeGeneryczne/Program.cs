@@ -10,12 +10,24 @@ namespace _2_KolekcjeGeneryczne
     {
         static void Main(string[] args)
         {
-            Kolejka();
-            Stos();
+            //  Kolejka();
+            //  Stos();
+                HashSet();
 
+        }
 
+        private static void HashSet()
+        {
+            HashSet<Pracownik> set = new HashSet<Pracownik>();
+            var pracownik = new Pracownik { Imie = "Marcin" };
 
+            set.Add(pracownik);
+            set.Add(pracownik);
 
+            foreach (var item in set)
+            {
+                Console.WriteLine(item.Imie);
+            }
         }
 
         private static void Stos()
