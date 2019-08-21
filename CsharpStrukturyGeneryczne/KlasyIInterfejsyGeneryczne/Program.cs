@@ -7,14 +7,14 @@ namespace _3_KlasyIInterfejsyGeneryczne
     {
         static void Main(string[] args)
         {
-            var kolejka = new KolejkaKolowa<double>();
+            var kolejka = new DuzaKolejka<double>();
 
             WprowadzanieDanych(kolejka);
 
             PrzetwarzanieDanych(kolejka);
         }
 
-        private static void PrzetwarzanieDanych(KolejkaKolowa<double> kolejka)
+        private static void PrzetwarzanieDanych(IKolejka<double> kolejka)
         {
             var suma = 0.0;
             Console.WriteLine("W naszej kolejce jest: ");
@@ -29,7 +29,7 @@ namespace _3_KlasyIInterfejsyGeneryczne
             Console.WriteLine(suma);
         }
 
-        private static void WprowadzanieDanych(KolejkaKolowa<double> kolejka)
+        private static void WprowadzanieDanych(IKolejka<double> kolejka)
         {
             while (true)
             {
