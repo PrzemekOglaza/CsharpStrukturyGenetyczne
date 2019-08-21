@@ -17,18 +17,37 @@ namespace _2_KolekcjeGeneryczne
             //  LinkedList2();
 
 
-            var pracownicy = new Dictionary<string, Pracownik>();
+            var pracownicy = new Dictionary<string, List<Pracownik>>();
 
-            pracownicy.Add("Nowak", new Pracownik { Nazwisko = "Nowak" });
-            pracownicy.Add("Kowal", new Pracownik { Nazwisko = "Kowal" });
-            pracownicy.Add("Kaczor", new Pracownik { Nazwisko = "Kaczor" });
+            pracownicy.Add("Ksiegowosc", new List<Pracownik>() { new Pracownik { Nazwisko = "Nowak" },
+                                                                 new Pracownik { Nazwisko = "Motka" },
+                                                                 new Pracownik { Nazwisko = "Torba" } });
 
+            //...
 
-            var kowal = pracownicy["Kowal"];
+            pracownicy["Ksiegowosc"].Add(new Pracownik { Nazwisko = "Nowak" });
 
-            foreach (var pracownik in pracownicy)
+            pracownicy.Add("Informatyka", new List<Pracownik>() { new Pracownik { Nazwisko = "Kowalski"},
+                                                                    new Pracownik { Nazwisko = "Watroba"}});
+             
+            foreach (var item in pracownicy)
             {
-                Console.WriteLine("{0}:{1}", pracownik.Key, pracownik.Value.Nazwisko);
+                Console.WriteLine("Dział :"  + item.Key);
+
+                foreach (var pracownik in item.Value)
+                {
+                    Console.WriteLine(pracownik.Nazwisko);
+                }
+
+                Console.WriteLine();
+
+            }
+
+            Console.WriteLine("Pracownicy z Ksiegowosci");
+
+            foreach (var item in pracownicy["Ksiegowosc"])
+            {
+                Console.WriteLine(item.Nazwisko);
             }
 
         }
