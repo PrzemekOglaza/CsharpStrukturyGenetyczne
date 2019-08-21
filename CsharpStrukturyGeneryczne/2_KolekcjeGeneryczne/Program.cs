@@ -15,8 +15,31 @@ namespace _2_KolekcjeGeneryczne
             //  HashSet();
             //  LinkedList();
             //  LinkedList2();
+            //  Słownik();
 
+            var pracownicy = new SortedDictionary<string, List<Pracownik>>();
 
+            pracownicy.Add("Sprzedaż", new List<Pracownik> { new Pracownik { Imie = "Jan", Nazwisko = "Kowal" },
+                                                             new Pracownik { Imie = "Tomasz", Nazwisko = "Wolga" },
+                                                             new Pracownik { Imie = "Ola", Nazwisko = "Kac" } });
+
+            pracownicy.Add("Informatyka", new List<Pracownik> { new Pracownik { Imie = "Tatiana", Nazwisko = " Nos"},
+                                                                new Pracownik { Imie = "Ola", Nazwisko = " Mop"}});
+
+            pracownicy.Add("Ksiegowość", new List<Pracownik> { new Pracownik { Imie = "Tom", Nazwisko = "Cok"},
+                                                                new Pracownik { Imie = "Iwona", Nazwisko = "Tok"},
+                                                                new Pracownik { Imie = "Teresa", Nazwisko = "Kok"},
+                                                                new Pracownik { Imie = "Olaf", Nazwisko = "Lok"}});
+
+            foreach (var item in pracownicy)
+            {
+                Console.WriteLine("Ilość pracowników w dziale {0} wynosi {1} ",item.Key, item.Value.Count);
+            }
+
+        }
+
+        private static void Słownik()
+        {
             var pracownicy = new Dictionary<string, List<Pracownik>>();
 
             pracownicy.Add("Ksiegowosc", new List<Pracownik>() { new Pracownik { Nazwisko = "Nowak" },
@@ -29,10 +52,10 @@ namespace _2_KolekcjeGeneryczne
 
             pracownicy.Add("Informatyka", new List<Pracownik>() { new Pracownik { Nazwisko = "Kowalski"},
                                                                     new Pracownik { Nazwisko = "Watroba"}});
-             
+
             foreach (var item in pracownicy)
             {
-                Console.WriteLine("Dział :"  + item.Key);
+                Console.WriteLine("Dział :" + item.Key);
 
                 foreach (var pracownik in item.Value)
                 {
@@ -49,7 +72,6 @@ namespace _2_KolekcjeGeneryczne
             {
                 Console.WriteLine(item.Nazwisko);
             }
-
         }
 
         private static void LinkedList2()
