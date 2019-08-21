@@ -16,8 +16,30 @@ namespace _2_KolekcjeGeneryczne
             //  LinkedList();
             //  LinkedList2();
             //  Słownik();
+            SortedDictionary(); // lepsze przy pobieraniu i usuwaniu elementów
+            //  SortedList(); 
 
-            var pracownicy = new SortedDictionary<string, List<Pracownik>>();
+        }
+
+        private static void SortedList()
+        {
+            var listaPosortowana = new SortedList<int, string>();
+
+            listaPosortowana.Add(3, "trzy");
+            listaPosortowana.Add(2, "dwa");
+            listaPosortowana.Add(5, "piec");
+            listaPosortowana.Add(1, "jeden");
+            listaPosortowana.Add(4, "cztery");
+
+            foreach (var item in listaPosortowana)
+            {
+                Console.WriteLine(item.Value);
+            }
+        }
+
+        private static void SortedDictionary()
+        {
+            var pracownicy = new SortedList<string, List<Pracownik>>();
 
             pracownicy.Add("Sprzedaż", new List<Pracownik> { new Pracownik { Imie = "Jan", Nazwisko = "Kowal" },
                                                              new Pracownik { Imie = "Tomasz", Nazwisko = "Wolga" },
@@ -33,9 +55,8 @@ namespace _2_KolekcjeGeneryczne
 
             foreach (var item in pracownicy)
             {
-                Console.WriteLine("Ilość pracowników w dziale {0} wynosi {1} ",item.Key, item.Value.Count);
+                Console.WriteLine("Ilość pracowników w dziale {0} wynosi {1} ", item.Key, item.Value.Count);
             }
-
         }
 
         private static void Słownik()
