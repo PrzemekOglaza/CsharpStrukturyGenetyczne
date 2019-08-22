@@ -11,6 +11,11 @@ namespace _3_KlasyIInterfejsyGeneryczne
 
             WprowadzanieDanych(kolejka);
 
+            foreach (var item in kolejka)
+            {
+                Console.WriteLine(item);
+            }
+
             PrzetwarzanieDanych(kolejka);
         }
 
