@@ -20,6 +20,46 @@ namespace _2_KolekcjeGeneryczne
             //  SortedList(); 
             //  SortedSet();
 
+
+            var pracownicy = new SortedDictionary<string, SortedSet<Pracownik>>();
+
+            pracownicy.Add("Ksiegowosc", new SortedSet<Pracownik>(new PracownikComparer()));
+
+
+
+            pracownicy["Ksiegowosc"].Add(new Pracownik { Nazwisko = "Nowak" });
+            pracownicy["Ksiegowosc"].Add(new Pracownik { Nazwisko = "Kowalski" });
+            pracownicy["Ksiegowosc"].Add(new Pracownik { Nazwisko = "Brzechwa" });
+            pracownicy["Ksiegowosc"].Add(new Pracownik { Nazwisko = "Mop" });
+            pracownicy["Ksiegowosc"].Add(new Pracownik { Nazwisko = "Nowak" });
+
+            pracownicy.Add("Sprzedaz", new SortedSet<Pracownik>(new PracownikComparer()));
+
+            pracownicy["Sprzedaz"].Add(new Pracownik { Nazwisko = "Nowak" });
+            pracownicy["Sprzedaz"].Add(new Pracownik { Nazwisko = "Bob" });
+            pracownicy["Sprzedaz"].Add(new Pracownik { Nazwisko = "Tom" });
+            pracownicy["Sprzedaz"].Add(new Pracownik { Nazwisko = "Nowak" });
+
+            foreach (var dzial in pracownicy)
+            {
+                Console.WriteLine(dzial.Key);
+                foreach (var pracownik in dzial.Value)
+                {
+                    Console.WriteLine("\t"  + pracownik.Nazwisko);
+                }
+            }
+           
+
+
+
+
+
+
+
+
+
+
+
         }
 
         private static void SortedSet()
