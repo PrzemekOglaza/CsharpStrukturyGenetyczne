@@ -1,5 +1,6 @@
 ﻿
 using _3_KlasyIInterfejsyGeneryczne;
+using System;
 
 namespace _4_MetodyDelegatyGeneryczne
 {
@@ -19,7 +20,17 @@ namespace _4_MetodyDelegatyGeneryczne
 
             if (kolejka.Count > _pojemnosc)
             {
-                kolejka.Dequeue();
+                var usuniety = kolejka.Dequeue();
+                PoUsunieciuElementu(usuniety, wartosc);
+            }
+        }
+
+        private void PoUsunieciuElementu(T usuniety, T wartosc)
+        {
+            if (elementUsuniety != null)
+            {
+                var args = new ElementUsunientyEventArgs<T>(usuniety, wartosc);
+                elementUsuniety(this, args);
             }
         }
 
@@ -30,6 +41,19 @@ namespace _4_MetodyDelegatyGeneryczne
                 return kolejka.Count == _pojemnosc;
             }
         }
+
+        public event EventHandler<ElementUsunientyEventArgs<T>> elementUsuniety;
     }
 
+    public class ElementUsunientyEventArgs<T> : EventArgs
+    {
+        public T ElementUsuniety { get; set; }
+        public T ElementNowy { get; set; }
+
+        public ElementUsunientyEventArgs(T elementUsunienty, T elementNowy)
+        {
+            ElementUsuniety = elementUsunienty;
+            ElementNowy = elementNowy;
+        }
+    }
 }
