@@ -32,19 +32,7 @@ namespace _4_MetodyDelegatyGeneryczne
         public virtual void Zapisz(T wartosc)
         {
             kolejka.Enqueue(wartosc);
-        }
-
-        public IEnumerable<Twyjscie> ElementJako<Twyjscie>()
-        {
-            var konwerter = TypeDescriptor.GetConverter(typeof(T));
-
-            foreach (var item in kolejka)
-            {
-                var wynik = konwerter.ConvertTo(item, typeof(Twyjscie));
-                yield return (Twyjscie)wynik;
-            }
-        }
-        
+        }     
 
         public IEnumerator<T> GetEnumerator()
         {

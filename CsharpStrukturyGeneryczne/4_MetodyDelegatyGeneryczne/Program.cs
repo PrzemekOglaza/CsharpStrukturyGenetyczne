@@ -11,7 +11,9 @@ namespace _4_MetodyDelegatyGeneryczne
 
             WprowadzanieDanych(kolejka);
 
-            var elementyJakoInt = kolejka.ElementJako<int>();
+            kolejka.Drukuj();
+
+            var elementyJakoInt = kolejka.ElementJako<double, int>();
                 
             foreach (var item in elementyJakoInt)
             {
