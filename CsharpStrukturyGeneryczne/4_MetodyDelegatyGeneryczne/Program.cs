@@ -6,18 +6,19 @@ namespace _4_MetodyDelegatyGeneryczne
     class Program
 
     {
-        static void KonsolaWypisz(double dane)
-        {
-            Console.WriteLine(dane);
-        }
 
         static void Main(string[] args)
         {
+            //Action<double> drukuj = x => Console.WriteLine(x);
+            //drukuj(7.6);
+            //Action<int, int, int, int> test = (a, b, c, d) => Console.WriteLine(a+b+c+d);
+            //test(1, 2, 3, 4);
+
             var kolejka = new KolejkaKolowa<double>();
 
             WprowadzanieDanych(kolejka);
 
-            kolejka.Drukuj(KonsolaWypisz);
+            kolejka.Drukuj(d => Console.WriteLine(d));
  
             PrzetwarzanieDanych(kolejka);
         }
