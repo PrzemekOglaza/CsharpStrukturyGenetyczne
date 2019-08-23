@@ -9,6 +9,13 @@ namespace _4_MetodyDelegatyGeneryczne
 
         static void Main(string[] args)
         {
+            Action<double> drukuj = x => Console.WriteLine(x);
+
+            Func<double, double> potegowanie = d => d * d;
+            Func<double, double, double> dodaj = (x, y) => x + y;
+
+            drukuj(potegowanie(5));
+            drukuj(dodaj(10, 20));
             //Action<double> drukuj = x => Console.WriteLine(x);
             //drukuj(7.6);
             //Action<int, int, int, int> test = (a, b, c, d) => Console.WriteLine(a+b+c+d);
