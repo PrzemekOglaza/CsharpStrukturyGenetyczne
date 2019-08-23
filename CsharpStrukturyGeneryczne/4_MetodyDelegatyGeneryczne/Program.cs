@@ -9,13 +9,21 @@ namespace _4_MetodyDelegatyGeneryczne
 
         static void Main(string[] args)
         {
-            Action<double> drukuj = x => Console.WriteLine(x);
-
+            Action<bool> drukuj = x => Console.WriteLine(x);
             Func<double, double> potegowanie = d => d * d;
             Func<double, double, double> dodaj = (x, y) => x + y;
+            Predicate<double> jestWiekszeOdSto = d => d < 100;
 
-            drukuj(potegowanie(5));
-            drukuj(dodaj(10, 20));
+            drukuj(jestWiekszeOdSto(potegowanie(dodaj(6,8))));
+
+            //Action<double> drukuj = x => Console.WriteLine(x);
+            //Func<double, double> potegowanie = d => d * d;
+            //Func<double, double, double> dodaj = (x, y) => x + y;
+
+            //drukuj(potegowanie(5));
+            //drukuj(dodaj(10, 20));
+
+
             //Action<double> drukuj = x => Console.WriteLine(x);
             //drukuj(7.6);
             //Action<int, int, int, int> test = (a, b, c, d) => Console.WriteLine(a+b+c+d);
